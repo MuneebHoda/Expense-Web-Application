@@ -1,0 +1,61 @@
+﻿.login-page {
+    background-color: $color-primary-one;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    //Layout and positioning
+    display: flex;
+    flex-direction: row;
+    width: 85vw;
+    max-width: 85%;
+    //Visual Stylung
+    background-color: $color-primary-two;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    //Spacing
+    margin: 5vh auto;
+    padding: 2rem;
+}
+
+.login-left {
+    padding: 2.5rem;
+    width: 50%;
+
+    .title {
+        color: $color-primary-four;
+        font-size: 2rem;
+    }
+
+    .sub-title {
+        color: $color-primary-three;
+        font-size: 1.5rem;
+    }
+}
+
+.login-right {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+
+    .widget-image {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            max-width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+    }
+}

@@ -1,0 +1,58 @@
+﻿.card-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.2rem 0.2rem rgba($color-primary-three, 0.5);
+    overflow-x:auto;
+    .card {
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+        flex: 1;
+        position: relative;
+
+        &.rejected-card {
+            background-color: $color-primary-two;
+        }
+
+        &.accepted-card {
+            background: linear-gradient(135deg, $color-primary-four, $color-peach);
+        }
+
+        &.pending-card {
+            background-color: $color-primary-two;
+        }
+
+        .card-upper-right-corner {
+            display: flex;
+
+            i {
+                display: flex;
+                margin-top: 0.6rem;
+                color: $color-white;
+                font-size: 2.5rem;
+            }
+
+            h3 {
+                display: flex;
+                color: $color-white;
+                margin-top: 0.7rem;
+                margin-left: 0.3rem;
+            }
+        }
+
+        .card-bottom-left-corner {
+            display: flex;
+            justify-content: flex-end;
+
+            p {
+                color: $color-white;
+                font-size: 2rem;
+                margin-top: 2rem;
+                margin-right: 0.5rem;
+                margin-bottom: 0rem
+            }
+        }
+    }
+}

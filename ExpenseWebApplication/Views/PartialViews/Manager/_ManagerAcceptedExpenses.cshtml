@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ExpenseWebApplication.Models.ViewModel.ExpenseFormViewModel>
+
+<div class="expenses-container" id="dashboard-expenses-container">
+    <table class="expense-table">
+        <thead class="expense-table-head">
+            <tr class="expense-table-head-row">
+                <th>S.No</th>
+                <th>Submitted Date</th>
+                <th>Submitted By</th>
+                <th>Currency</th>
+                <th>Total Amount</th>
+                <th>Status</th>
+                <th>View</th>
+            </tr>
+        </thead>
+        <tbody class="expense-table-body">
+            @if (Model != null)
+            {
+                int counter = 1;
+                foreach (var expenseForm in Model)
+                {
+                    var currency = expenseForm.Expenses.Count > 0 ? expenseForm.Expenses[0].Currency : "N/A";
+                    <tr class="expense-table-row">
+                        <td>@counter</td>
+                        <td>@expenseForm.SubmittedDate.ToShortDateString()</td>
+                        <td>@expenseForm.EmployeeName</td>
+                        <td>@currency</td>
+                        <td>@expenseForm.TotalAmount</td>
+                        <td>@expenseForm.Status</td>
+                        <td>
+                            <button class="expense-table-row-view-btn" id="specificExpenseViewer" data-form-id="@expenseForm.FormID">View</button>
+                        </td>
+                    </tr>
+                    counter++;
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+

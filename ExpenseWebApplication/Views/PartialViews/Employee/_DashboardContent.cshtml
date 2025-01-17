@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ExpenseWebApplication.Models.ViewModel.ExpenseFormViewModel>
+
+<div class="expenses-container" id="dashboard-expenses-container">
+    <div class="btn-location-expense">
+        <select id="filterOptions">
+            <option value="">Filter by</option>
+            <option value="highestToLowest">Highest to Lowest</option>
+            <option value="mostRecent">Most Recent</option>
+        </select>
+        <button class="btn-add-expense" id="addExpenseBtn">Add Expense</button>
+    </div>
+    <table class="expense-table">
+        <thead class="expense-table-head">
+            <tr class="expense-table-head-row">
+                <th>S.No</th>
+                <th>Form No</th>
+                <th>Submitted Date</th>
+                <th>Submitted To</th>
+                <th>Currency</th>
+                <th>Total Amount</th>
+                <th>Status</th>
+                <th>View</th>
+            </tr>
+        </thead>
+        <tbody class="expense-table-body">
+            @if (Model != null)
+            {
+                int counter = 1;
+                foreach (var expenseForm in Model)
+                {
+                    var currency = expenseForm.Expenses.Count > 0 ? expenseForm.Expenses[0].Currency : "N/A";
+                    <tr class="expense-table-row">
+                        <td>@counter</td>
+                        <td>@expenseForm.FormID</td>
+                        <td>@expenseForm.SubmittedDate.ToShortDateString()</td>
+                        <td>@expenseForm.ManagerName</td>
+                        <td>@currency</td>
+                        <td>@expenseForm.TotalAmount</td>
+                        <td>@expenseForm.Status</td>
+                        <td>
+                            <button class="expense-table-row-view-btn" id="specificExpenseViewer" data-form-id="@expenseForm.FormID">View</button>
+                        </td>
+                    </tr>
+                    counter++;
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+

@@ -1,0 +1,84 @@
+﻿.dashboard-page {
+    /* Layout and Positioning */
+    background-color: $color-grey-light-3;
+}
+
+.dashboard-links {
+    /* Layout and Positioning */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    /* Spacing */
+    gap: 1rem;
+    margin-top: 2rem;
+    max-width: 100%;
+
+    .dashboard-item {
+        /* Layout and Positioning */
+        display: flex;
+        flex: 1 1 calc(20% - 1.5rem);
+        max-width: 20rem;
+        max-height: 9rem;
+        padding: 1rem;
+        /* Visual Styling */
+        background-color: $color-black;
+        border-radius: 0.5rem;
+        box-shadow: 0 2px 4px rgba($color-primary-three, 0.8);
+        transition: box-shadow 0.3s;
+
+        i {
+            /* Layout and Positioning */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Visual Styling */
+            font-size: 3rem;
+            color: $color-white;
+            transition: color 0.3s;
+        }
+
+        .dashboard-text-design {
+            /* Layout and Positioning */
+            display: flex;
+            flex-direction: column;
+            /* Spacing */
+            margin-left: 1rem;
+            margin-top: 1rem;
+        }
+
+        h3 {
+            /* Visual Styling */
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: $color-white;
+            /* Spacing */
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            /* Visual Styling */
+            font-size: 1rem;
+            color: $color-grey-dark-2;
+        }
+
+        &:hover {
+            /* Visual Styling */
+            box-shadow: 0 0.25rem 0.5rem rgba($color-white, 0.2);
+
+            h3, i, p {
+                color: $color-primary-four;
+            }
+        }
+
+        &.selected {
+            /* Visual Styling */
+            background-color: $color-primary-four;
+
+            h3, i, p {
+                color: $color-white;
+            }
+            /* Visual Styling */
+            box-shadow: 0 0.25rem 0.5rem rgba($color-white, 0.3);
+        }
+    }
+}

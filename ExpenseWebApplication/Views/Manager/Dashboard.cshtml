@@ -1,0 +1,185 @@
+﻿@model ExpenseWebApplication.Models.ViewModel.DashboardViewModel
+
+@{
+    ViewBag.Title = "Dashboard";
+}
+<html lang="en">
+<body class="dashboard-page">
+    <div class="container">
+        <div class="user-details">
+            <div class="user-info-container">
+                <div class="user-image">
+                    <i class="fa fa-user-circle" aria-hidden="true"></i>
+                </div>
+                <div class="user-name">
+                    <h2>@Model.UserName</h2>
+                </div>
+            </div>
+            <div class="user-other-details">
+                <div>
+                    <strong>
+                        Employee ID:
+                    </strong>
+                    <span>22809</span>
+                </div>
+                <div>
+                    <strong>
+                        Age
+                    </strong>
+                    <span>@Model.Age</span>
+                </div>
+                <div>
+                    <strong>
+                        Gender
+                    </strong>
+                    <span>@Model.Gender</span>
+                </div>
+                <div>
+                    <strong>
+                        Position
+                    </strong>
+
+                    <span>Manager</span>
+                </div>
+                <div>
+                    <strong>
+                        Department:
+                    </strong>
+
+                    <span>
+                        @Model.Department
+                    </span>
+                </div>
+            </div>
+            <div class="dashboard-links">
+                <div class="dashboard-item" data-content="pending-content">
+                    <i class="fa-solid fa-clock"></i>
+                    <div class="dashboard-text-design">
+                        <h3>Pending</h3>
+                        <p>Waiting Approval</p>
+                    </div>
+                </div>
+                <div class="dashboard-item" data-content="rejected-content">
+                    <i class="fa-solid fa-times-circle"></i>
+                    <div class="dashboard-text-design">
+                        <h3>Rejected</h3>
+                        <p>Need Changes</p>
+                    </div>
+                </div>
+                <div class="dashboard-item" data-content="approved-content">
+                    <i class="fa-solid fa-check-circle"></i>
+                    <div class="dashboard-text-design">
+                        <h3>Approved</h3>
+                        <p>Expense Approved</p>
+                    </div>
+                </div>
+                <div class="dashboard-item" data-content="progress-content">
+                    <i class="fa-solid fa-spinner"></i>
+                    <div class="dashboard-text-design">
+                        <h3>Approval Progress</h3>
+                        <p>Approval Progress</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="expense-details">
+            <div class="expense-heading">
+                <h2>Expense Application</h2>
+            </div>
+            <div class="card-container">
+                <div class="card rejected-card">
+                    <div class="card-upper-right-corner">
+                        <i class="fa-solid fa-times-circle"></i>
+                        <h3>Rejected</h3>
+                    </div>
+                    <div class="card-bottom-left-corner">
+                        <p>0</p>
+                    </div>
+                </div>
+                <div class="card accepted-card">
+                    <div class="card-upper-right-corner">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <h3>Accepted</h3>
+                    </div>
+                    <div class="card-bottom-left-corner">
+                        <p>0</p>
+                    </div>
+                </div>
+                <div class="card pending-card">
+                    <div class="card-upper-right-corner">
+                        <i class="fa-solid fa-clock"></i>
+                        <h3>Pending</h3>
+                    </div>
+                    <div class="card-bottom-left-corner">
+                        <p>0</p>
+                    </div>
+                </div>
+            </div>
+            <div class="expenses-container" id="expenseContainer">
+                <!-- Content will be loaded dynamically via AJAX -->
+            </div>
+        </div>
+        <div id="addExpenseModal" class="modal">
+            <div class="modal-content">
+                <div class="expense-table-form-column">
+                    <span class="close">&times;</span>
+                    <h2>Expense Table</h2>
+                    <div class="left-side" id="expenseTableForm">
+                        <div class="expense-table-header"> 
+                            <div class="expense-table-currency-select">
+                                <label for="currencySelect">Select Currency:</label>
+                                <select id="currencySelect">
+                                    <option value="$">USD ($)</option>
+                                    <option value="€">EUR (€)</option>
+                                    <option value="£">GBP (£)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <table class="expense-bill-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Currency</th>
+                                    <th>Description</th>
+                                    <th>Expense Date</th>
+                                    <th>Amount</th>
+                                    <th>Delete Expense</th>
+                                </tr>
+                            </thead>
+                            <tbody class="expense-bill-body" id="billBody">
+                                <tr>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="total-container">
+                            <strong>Total Amount: </strong>
+                            <span id="totalAmount">0</span>
+                        </div>
+                        <div class="btn-position">
+                            <button class="submit-btn" id="approveExpenseBtn">Approve</button>
+                            <button class="cancel-btn" id="rejectExpenseBtn">Reject</button>
+                        </div>
+                    </div>
+                </div>
+                    <div class="right-side" id="addManagerComments">
+                        <form id="addManagerCommentsForm">
+                            @Html.AntiForgeryToken()
+
+                            <label for="itemDescription">Comments:</label>
+                            <input class="commentBox" type="text" id="itemComments" name="comments" required />
+
+                            <button type="button" id="submitManagerComments">Submit</button>
+                        </form>
+                    </div>
+        </div>
+    </div>
+        </div>
+        <script type="text/javascript">
+            var expenseFormsData = @Html.Raw(Json.Encode(Model.ExpenseForms));
+        </script>
+        <script src="~/Scripts/tabShifting.js"></script>
+        <script src="~/Scripts/Manager/expenseManagerBill.js"></script>
+        <script src="~/Scripts/Manager/dynamicManagerDataLoad.js"></script>
+</body>
+</html>
+

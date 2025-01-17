@@ -1,0 +1,91 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+}
+
+<html lang="en">
+<body class="login-page">
+    <div class="login-container">
+        <div class="login-left">
+            <div>
+                <h2 class="title">Sign Up</h2>
+                <p class="sub-title">Create you account</p>
+            </div>
+            <form class="signup-form" method="post" action="@Url.Action("Register", "User")">
+                <div id="toast" class="toast">
+                    <span id="toastMessage"></span>
+                </div>
+                @Html.AntiForgeryToken()
+                <div class="login-credentials">
+                    <h3 class="login-credentials-heading">Login Credentials Details</h3>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="example@example.com" required>
+                        <small class="error-message" id="emailError"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Your password" required>
+                        <small class="error-message" id="passwordLengthMessage">Password must be at least 8 characters long.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Confirm Password</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Retype your password" required>
+                        <small class="error-message" id="passwordError"></small>
+                    </div>
+                </div>
+                <div class="basic-info">
+                    <h3 class="basic-info-heading">Basic Info Details</h3>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" placeholder="John Doe" pattern="^[A-Za-z\s]{3,}$" title="Username should contain only letters and be at least 3 characters long." required>
+                        <small class="error-message" id="usernameError"></small>
+                    </div>
+                    <div class="row-age-gender">
+                        <div class="form-group">
+                            <label for="age">Age</label>
+                            <input type="number" id="age" name="age" placeholder="0" min="18" max="100" required>
+                            <small>Age must be between 18 and 100.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <select id="gender" name="gender">
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="department">Department</label>
+                        <select id="department" name="department">
+                            <option value="VeriTouch">VeriTouch</option>
+                            <option value="VeriLink">VeriLink</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="position">Position</label>
+                        <select id="position" name="position">
+                            <option value="Employee">Employee</option>
+                            <option value="Accountant">Accountant</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="signup-btn-link">
+                    <button type="submit" class="btn-login">Register</button>
+                    <div class="inline-links">
+                        <p class="inline-links__text">Already have an account? <a href="@Url.Action("Login", "User")" class="inline-links__signup">Login</a></p>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="login-right">
+            <div class="widget-image">
+                <img src="~/Content/images/CashMoney.jpeg" alt="Widget graphic">
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/resgisterInputValidation.js"></script>
+</body>
+</html>
+
+

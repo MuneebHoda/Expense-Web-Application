@@ -1,0 +1,17 @@
+﻿{
+  "compilers": [
+    {
+      "extension": ".scss",
+      "path": "libs/sass/sass.exe",
+      "options": {
+        "sourceMap": false
+      }
+    }
+  ],
+  "files": [
+    {
+      "input": "Content/sass/main.scss",
+      "output": "Content/css/styles.css"
+    }
+  ]
+}

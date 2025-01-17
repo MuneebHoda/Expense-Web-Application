@@ -1,0 +1,149 @@
+﻿@model ExpenseWebApplication.Models.ViewModel.DashboardViewModel
+
+@{
+    ViewBag.Title = "Dashboard";
+}
+<html lang="en">
+<body class="dashboard-page">
+    <div class="container">
+        <div class="user-details">
+            <div class="user-info-container">
+                <div class="user-image">
+                    <i class="fa fa-user-circle" aria-hidden="true"></i>
+                </div>
+                <div class="user-name">
+                    <h2>@Model.UserName</h2>
+                </div>
+            </div>
+            <div class="user-other-details">
+                <div>
+                    <strong>
+                        Employee ID:
+                    </strong>
+                    <span>22809</span>
+                </div>
+                <div>
+                    <strong>
+                        Age
+                    </strong>
+                    <span>@Model.Age</span>
+                </div>
+                <div>
+                    <strong>
+                        Gender
+                    </strong>
+                    <span>@Model.Gender</span>
+                </div>
+                <div>
+                    <strong>
+                        Position
+                    </strong>
+
+                    <span>Admin</span>
+                </div>
+                <div>
+                    <strong>
+                        Department:
+                    </strong>
+
+                    <span>
+                        @Model.Department
+                    </span>
+                </div>
+            </div>
+            <div class="dashboard-links">
+                <div class="dashboard-item" data-content="charts-content">
+                    <i class="fa-solid fa-clock"></i>
+                    <div class="dashboard-text-design">
+                        <h3>Dashboards</h3>
+                        <p>Charts And Graphs</p>
+                    </div>
+                </div>
+                <div class="dashboard-item" data-content="transaction-content">
+                    <i class="fa-solid fa-check-circle"></i>
+                    <div class="dashboard-text-design">
+                        <h3>Transactions</h3>
+                        <p>All Transactions<p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="expense-details">
+            <div class="expense-heading">
+                <h2>Expense Application</h2>
+            </div>
+            <div class="card-container">
+                <div class="card rejected-card">
+                    <div class="card-upper-right-corner">
+                        <i class="fa-solid fa-times-circle"></i>
+                        <h3>Rejected</h3>
+                    </div>
+                    <div class="card-bottom-left-corner">
+                        <p>0<p>
+                    </div>
+                </div>
+                <div class="card accepted-card">
+                    <div class="card-upper-right-corner">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <h3>Approved</h3>
+                    </div>
+                    <div class="card-bottom-left-corner">
+                        <p>0<p>
+                    </div>
+                </div>
+                <div class="card pending-card">
+                    <div class="card-upper-right-corner">
+                        <i class="fa-solid fa-clock"></i>
+                        <h3>Pending</h3>
+                    </div>
+                    <div class="card-bottom-left-corner">
+                        <p>0</p>
+                    </div>
+                </div>
+            </div>
+            <div class="expenses-container" id="expenseContainer">
+                <!-- Content will be loaded dynamically via AJAX -->
+            </div>
+        </div>
+    </div>
+    <div id="addExpenseModal" class="modal">
+        <div class="modal-content">
+            <div class="expense-table-form-column">
+                <span class="close">&times;</span>
+                <h2>Expense Table</h2>
+                <div class="left-side" id="expenseTableForm">
+                    <table class="expense-bill-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Currency</th>
+                                <th>Description</th>
+                                <th>Expense Date</th>
+                                <th>Amount</th>
+                                <th>Delete Expense</th>
+                            </tr>
+                        </thead>
+                        <tbody class="expense-bill-body" id="billBody">
+                            <tr>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="total-container">
+                        <strong>Total Amount: </strong>
+                        <span id="totalAmount">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var expenseFormsData = @Html.Raw(Json.Encode(Model.ExpenseForms));
+    </script>
+    <script src="~/Scripts/tabShifting.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="~/Scripts/Admin/dynamicAdminDataLoad.js"></script>
+    <script src="~/Scripts/Admin/expenseAdminBill.js"></script>
+</body>
+</html>
+
+

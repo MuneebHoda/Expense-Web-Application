@@ -1,0 +1,55 @@
+﻿@model IEnumerable<ExpenseWebApplication.Models.ViewModel.ApprovalProgressViewModel>
+
+<div class="expenses-container" id="dashboard-expenses-container">
+    <div class="btn-location-expense">
+        <select id="filterOptions">
+            <option value="">Filter by</option>
+            <option value="highestToLowest">Highest to Lowest</option>
+            <option value="mostRecent">Most Recent</option>
+        </select>
+    </div>
+    <table class="expense-table">
+        <thead class="expense-table-head">
+            <tr class="expense-table-head-row">
+                <th>S.No</th>
+                <th>Form No</th>
+                <th>Submitted At</th>
+                <th>Amount</th>
+                <th>Manager</th>
+                <th>M Status</th>
+                <th>M Approval</th>
+                <th>Accountant</th>
+                <th>A Approval</th>
+                <th>Is Paid</th>
+            </tr>
+        </thead>
+        <tbody class="expense-table-body">
+            @if (Model != null && Model.Any())
+            {
+                int counter = 1;
+                foreach (var approvalProgress in Model)
+                {
+                    <tr class="expense-table-row">
+                        <td>@counter</td>
+                        <td>@approvalProgress.FormID</td>
+                        <td>@approvalProgress.SubmittedAt</td>
+                        <td>@approvalProgress.TotalAmount</td>
+                        <td>@approvalProgress.ManagerUserName</td>
+                        <td>@approvalProgress.ManagerApprovalStatus</td>
+                        <td>@(approvalProgress.ManagerApprovalDate?.ToShortDateString() ?? "—")</td>
+                        <td>@approvalProgress.AccountantUserName</td>
+                        <td>@(approvalProgress.AccountantApprovalDate?.ToShortDateString() ?? "—")</td>
+                        <td>@approvalProgress.IsPaid</td>
+                    </tr>
+                    counter++;
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="9">No approval progress found.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

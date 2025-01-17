@@ -1,0 +1,10 @@
+﻿.expense-details{
+    flex: 1;
+    padding:1.0rem;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
+.expense-heading{
+    color: $color-primary-three;
+}

@@ -1,0 +1,64 @@
+﻿.user-details {
+    // Layout and Positioning
+    display: flex;
+    flex-direction: column;
+    max-width: 25%;
+    // Visual Styling
+    background-color: $color-white;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.3);
+    // Spacing
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+
+    .user-info-container {
+        // Layout and Positioning
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    .user-image {
+        // Layout and Positioning
+        border-radius: 50%;
+        // Visual Styling
+        i {
+            color: $color-primary-two;
+            font-size: 10rem;
+        }
+    }
+
+    .user-name {
+        // Layout and Positioning
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        // Visual Styling
+        color: $color-primary-three;
+        font-size: 1.5rem;
+        font-weight: bold;
+        // Spacing
+        padding: 1rem;
+    }
+
+    .user-other-details {
+        div {
+            // Layout and Positioning
+            display: flex;
+            justify-content: space-between;
+            max-width: 100%;
+            // Visual Styling
+            strong {
+                font-weight: bold;
+            }
+
+            span {
+                font-weight: normal;
+            }
+            // Spacing
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+    }
+}

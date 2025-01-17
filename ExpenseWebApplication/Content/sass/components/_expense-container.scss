@@ -1,0 +1,89 @@
+﻿.expenses-container {
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.2rem 0.4rem rgba($color-primary-three,0.3);
+    padding: 1rem;
+    overflow-x: auto;
+
+    .chart-heading {
+        font-size: 1.5em;
+        color: $color-black;
+        margin-bottom: 0.8px;
+    }
+
+    .chart {
+        width: 100%;
+        max-width: 600px;
+        height: 400px;
+        margin: 0 auto;
+    }
+
+    .pie-chart {
+        width: 100%;
+        max-width: 400px;
+        height: 400px;
+        margin: 0 auto;
+    }
+
+    .btn-location-expense {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+
+        .btn-add-expense {
+            background-color: $color-primary-three;
+            color: white;
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $color-primary-four;
+            }
+        }
+    }
+
+    .expense-table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: center;
+
+        .expense-table-head {
+            background-color: $color-primary-four;
+            color: $color-white;
+            font-weight: bold;
+        }
+
+        .expense-table-head-row {
+            .th {
+                padding: 1rem;
+                border-bottom: 1px solid $color-grey-dark-2;
+            }
+        }
+
+        .expense-table-body {
+            border-width: 0.1rem;
+
+            .expense-table-row {
+
+                td {
+                    white-space: nowrap;
+                    padding: 1rem;
+                    border: 1px solid $color-grey-dark-2;
+
+                    .expense-table-row-view-btn {
+                        background-color: $color-primary-two;
+                        border-radius: 0.5rem;
+                        color: $color-white;
+                    }
+                }
+
+                &:hover {
+                    background-color: $color-grey-light-3;
+                    border: 1px solid $color-grey-dark-2;
+                }
+            }
+        }
+    }
+}
